@@ -180,7 +180,7 @@ export function DesktopSpeedMenu({
     const MenuContent = (
         <div
             ref={menuRef}
-            className={`absolute z-[2147483647] bg-[var(--glass-bg)] backdrop-blur-[25px] saturate-[180%] rounded-[var(--radius-2xl)] border border-[var(--glass-border)] shadow-[var(--shadow-md)] p-1 sm:p-1.5 w-fit min-w-[3.5rem] sm:min-w-[4.5rem] animate-in fade-in zoom-in-95 duration-200 overflow-y-auto`}
+            className={`absolute z-[2147483647] bg-[var(--glass-bg)] backdrop-blur-[25px] saturate-[180%] rounded-[var(--radius-2xl)] border border-[var(--glass-border)] shadow-[var(--shadow-md)] p-1 sm:p-1.5 w-fit ${isRotated ? 'min-w-[2.5rem]' : 'min-w-[3.5rem] sm:min-w-[4.5rem]'} animate-in fade-in zoom-in-95 duration-200 overflow-y-auto`}
             style={{
                 ...(isRotated ? {
                     // In Rotated Mode:
@@ -216,7 +216,7 @@ export function DesktopSpeedMenu({
                 <button
                     key={speed}
                     onClick={() => onSpeedChange(speed)}
-                    className={`w-full px-3 py-1 sm:px-4 sm:py-1.5 rounded-[var(--radius-2xl)] text-xs sm:text-sm font-medium transition-colors ${playbackRate === speed
+                    className={`w-full ${isRotated ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 sm:px-4 sm:py-1.5 text-xs sm:text-sm'} rounded-[var(--radius-2xl)] font-medium transition-colors ${playbackRate === speed
                         ? 'bg-[var(--accent-color)] text-white'
                         : 'text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_15%,transparent)]'
                         }`}
